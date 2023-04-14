@@ -1,18 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Eventos.Domain;
 
-namespace Eventos.Persistence.Contratos
+public interface IEventoService 
 {
-    public interface IEventoPersist
-    {
+    Task<Evento>AddEventos(Evento model);
+    Task<Evento>UpdateEvento(int eventoId, Evento model);
+    Task<bool>DeleteEvento(int eventoId);
+
         Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrant = false);
 
         Task<Evento[]> GetAllEventosAsync(bool includePalestrant = false);
 
         Task<Evento> GetEventoByIdAsync(int EventoId, bool includePalestrant = false);
-
-    }
 }

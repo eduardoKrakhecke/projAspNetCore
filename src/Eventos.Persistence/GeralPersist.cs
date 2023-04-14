@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eventos.Domain;
+using Eventos.Persistence.Contextos;
 using Eventos.Persistence.Contratos;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,27 +17,27 @@ namespace Eventos.Persistence
             _context = context;
         }
 
-        void IEventosPersistence.Add<T>(T entity)
+        void IGeralPersist.Add<T>(T entity)
         {
             _context.Add(entity);
         }
 
-        void IEventosPersistence.Delete<T>(T entity)
+        void IGeralPersist.Delete<T>(T entity)
         {
             _context.Remove(entity);
         }
 
-        void IEventosPersistence.DeleteRange<T>(T[] entityArray)
+        void IGeralPersist.DeleteRange<T>(T[] entityArray)
         {
            _context.RemoveRange(entityArray);
         }
 
-          async Task<bool> IEventosPersistence.SaveChangeAsync()
+          async Task<bool> IGeralPersist.SaveChangeAsync()
         {
            return (await _context.SaveChangesAsync()) > 0;
         }
 
-        void IEventosPersistence.Update<T>(T entity)
+        void IGeralPersist.Update<T>(T entity)
         {
             _context.Update(entity);
         }

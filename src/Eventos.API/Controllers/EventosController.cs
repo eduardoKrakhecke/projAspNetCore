@@ -6,6 +6,7 @@ using Eventos.Persistence;
 using Eventos.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Eventos.Persistence.Contextos;
 
 namespace Eventos.API.Controllers
 {

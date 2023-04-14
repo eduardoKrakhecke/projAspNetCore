@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Eventos.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Eventos.Persistence
+namespace Eventos.Persistence.Contextos
 {
     public class EventosContext : DbContext
     {
