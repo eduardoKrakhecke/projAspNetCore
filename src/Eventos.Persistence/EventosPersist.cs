@@ -50,7 +50,7 @@ namespace Eventos.Persistence.Contratos
             return await query.ToArrayAsync();
         }
 
-        public async Task<Evento> GetEventoByIdAsync(int EventoId, bool includePalestrant = false)
+        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrant = false)
         {
             IQueryable<Evento> query = _context.Eventos
             .Include(e => e.Lotes)
@@ -63,7 +63,7 @@ namespace Eventos.Persistence.Contratos
             }
 
             query = query.OrderBy(e => e.Id)
-                         .Where(e => e.Id == EventoId);
+                         .Where(e => e.Id == eventoId);
             return await query.FirstOrDefaultAsync();
         }
     }

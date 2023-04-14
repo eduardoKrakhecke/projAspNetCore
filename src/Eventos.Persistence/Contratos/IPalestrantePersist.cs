@@ -14,6 +14,6 @@ namespace Eventos.Persistence.Contratos
 
         Task<Palestrante[]> GetAllEPalestrantesAsync(bool includeEvento);
 
-        Task<Palestrante> GetEPalestranteByIdAsync(int PalestranteId, bool includeEvento);
+        Task<Palestrante> GetEPalestranteByIdAsync(int palestranteId, bool includeEvento);
     }
 }

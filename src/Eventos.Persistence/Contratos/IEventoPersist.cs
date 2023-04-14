@@ -12,7 +12,7 @@ namespace Eventos.Persistence.Contratos
 
         Task<Evento[]> GetAllEventosAsync(bool includePalestrant = false);
 
-        Task<Evento> GetEventoByIdAsync(int EventoId, bool includePalestrant = false);
+        Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrant = false);
 
     }
 }
