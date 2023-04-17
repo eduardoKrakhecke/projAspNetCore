@@ -11,8 +11,8 @@ namespace Eventos.Persistence
 {
     public class GeralPersist : IGeralPersist
     {
-        private readonly ProEventosContext _context;
-        public GeralPersist(ProEventosContext context)
+        private readonly EventosContext _context;
+        public GeralPersist(EventosContext context)
         {
             _context = context;
 

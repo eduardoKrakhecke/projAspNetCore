@@ -99,7 +99,6 @@ namespace Eventos.Persistence.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     URL = table.Column<string>(type: "TEXT", nullable: true),
-                    EventId = table.Column<int>(type: "INTEGER", nullable: true),
                     EventoId = table.Column<int>(type: "INTEGER", nullable: true),
                     PalestranteId = table.Column<int>(type: "INTEGER", nullable: false)
                 },

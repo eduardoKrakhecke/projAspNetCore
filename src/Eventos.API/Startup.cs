@@ -1,4 +1,6 @@
 using System;
+using Eventos.Application;
+using Eventos.Application.Contratos;
 using Eventos.Persistence;
 using Eventos.Persistence.Contextos;
 using Eventos.Persistence.Contratos;
@@ -24,7 +26,7 @@ namespace Eventos.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ProEventosContext>(
+            services.AddDbContext<EventosContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers().AddNewtonsoftJson(

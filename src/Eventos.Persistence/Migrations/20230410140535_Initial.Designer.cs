@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Eventos.Persistence.Migrations
 {
-    [DbContext(typeof(ProEventosContext))]
+    [DbContext(typeof(EventosContext))]
     [Migration("20230410140535_Initial")]
     partial class Initial
     {
@@ -127,9 +127,6 @@ namespace Eventos.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("EventId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("EventoId")

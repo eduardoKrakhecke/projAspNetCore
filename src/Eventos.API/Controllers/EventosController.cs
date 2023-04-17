@@ -3,10 +3,10 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Eventos.Domain;
-using Eventos.Application.Contratos;
 using Microsoft.AspNetCore.Http;
+using Eventos.Application.Contratos;
 
-namespace ProEventos.API.Controllers
+namespace Eventos.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

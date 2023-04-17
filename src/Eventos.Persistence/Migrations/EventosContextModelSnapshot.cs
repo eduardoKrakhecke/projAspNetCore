@@ -127,9 +127,6 @@ namespace Eventos.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("EventId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("EventoId")
                         .HasColumnType("INTEGER");
 

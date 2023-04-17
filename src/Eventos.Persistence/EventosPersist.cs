@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Eventos.Domain;
 using Eventos.Persistence.Contextos;
 using Microsoft.EntityFrameworkCore;
+using Eventos.Persistence.Contratos;
 
 namespace Eventos.Persistence.Contratos
 {
     public class EventoPersist : IEventoPersist
-    {  private readonly ProEventosContext _context;
-        public EventoPersist(ProEventosContext context)
+    {  private readonly EventosContext _context;
+        public EventoPersist(EventosContext context)
         {
             _context = context;
             // _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;

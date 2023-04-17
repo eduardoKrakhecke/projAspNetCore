@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Eventos.Persistence.Contextos
 {
-    public class ProEventosContext : DbContext
+    public class EventosContext : DbContext
     {
-        public ProEventosContext(DbContextOptions<ProEventosContext> options) 
+        public EventosContext(DbContextOptions<EventosContext> options) 
             : base(options) { }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Lote> Lotes { get; set; }

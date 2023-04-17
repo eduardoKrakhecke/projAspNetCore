@@ -1,10 +1,13 @@
 
 using System;
 using System.Threading.Tasks;
+using Eventos.Application.Contratos;
 using Eventos.Domain;
 using Eventos.Persistence.Contratos;
 
-  public class EventoService : IEventoService
+namespace Eventos.Application
+{
+ public class EventoService : IEventoService
     {
         private readonly IGeralPersist _geralPersist;
         private readonly IEventoPersist _eventoPersist;
@@ -114,3 +117,5 @@ using Eventos.Persistence.Contratos;
         }
 
 }
+}
+ 

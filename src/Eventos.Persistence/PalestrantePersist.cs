@@ -11,8 +11,8 @@ namespace Eventos.Persistence
 {
     public class PalestrantePersist : IPalestrantePersist
     { 
-        private readonly ProEventosContext _context;
-        public PalestrantePersist(ProEventosContext context)
+        private readonly EventosContext _context;
+        public PalestrantePersist(EventosContext context)
         {
             _context = context;
         }
