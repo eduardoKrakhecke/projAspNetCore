@@ -11,36 +11,35 @@ namespace Eventos.Persistence
 {
     public class GeralPersist : IGeralPersist
     {
-        private readonly EventosContext _context;
-        public GeralPersist(EventosContext context)
+        private readonly ProEventosContext _context;
+        public GeralPersist(ProEventosContext context)
         {
             _context = context;
-        }
 
-        void IGeralPersist.Add<T>(T entity)
+        }
+        public void Add<T>(T entity) where T : class
         {
-            _context.Add(entity);
+            _context.AddAsync(entity);
         }
 
-        void IGeralPersist.Delete<T>(T entity)
-        {
-            _context.Remove(entity);
-        }
-
-        void IGeralPersist.DeleteRange<T>(T[] entityArray)
-        {
-           _context.RemoveRange(entityArray);
-        }
-
-          async Task<bool> IGeralPersist.SaveChangeAsync()
-        {
-           return (await _context.SaveChangesAsync()) > 0;
-        }
-
-        void IGeralPersist.Update<T>(T entity)
+        public void Update<T>(T entity) where T : class
         {
             _context.Update(entity);
         }
 
+        public void Delete<T>(T entity) where T : class
+        {
+            _context.Remove(entity);
+        }
+
+        public void DeleteRange<T>(T[] entityArray) where T : class
+        {
+            _context.RemoveRange(entityArray);
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
     }
 }

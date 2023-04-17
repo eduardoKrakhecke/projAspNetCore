@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Eventos.Persistence.Migrations
 {
-    [DbContext(typeof(EventosContext))]
+    [DbContext(typeof(ProEventosContext))]
     [Migration("20230410140535_Initial")]
     partial class Initial
     {

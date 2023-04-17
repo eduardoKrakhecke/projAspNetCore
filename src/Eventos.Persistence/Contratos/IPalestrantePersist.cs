@@ -8,12 +8,8 @@ namespace Eventos.Persistence.Contratos
 {
     public interface IPalestrantePersist
     {
-
-        //palestrantes
-         Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string nome, bool includeEvento);
-
-        Task<Palestrante[]> GetAllEPalestrantesAsync(bool includeEvento);
-
-        Task<Palestrante> GetEPalestranteByIdAsync(int palestranteId, bool includeEvento);
+       public Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string nome, bool includeEventos);
+       public Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEventos);
+       public Task<Palestrante> GetPalestranteByIdAsync(int palestranteId, bool includeEventos);
     }
 }
