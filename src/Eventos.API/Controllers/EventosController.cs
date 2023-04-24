@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Eventos.Domain;
 using Microsoft.AspNetCore.Http;
 using Eventos.Application.Contratos;
+using System.Collections.Generic;
+using Eventos.Application.Dtos;
 
 namespace Eventos.API.Controllers
 {
@@ -26,6 +28,7 @@ namespace Eventos.API.Controllers
             {
                 var eventos = await _eventoService.GetAllEventosAsync(true);
                 if (eventos == null) return NotFound("Nenhum evento encontrado.");
+
 
                 return Ok(eventos);
             }
@@ -71,7 +74,7 @@ namespace Eventos.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Evento model)
+        public async Task<IActionResult> Post(EventoDto model)
         {
             try
             {
@@ -88,7 +91,7 @@ namespace Eventos.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Evento model)
+        public async Task<IActionResult> Put(int id, EventoDto model)
         {
             try
             {
