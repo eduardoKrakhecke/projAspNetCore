@@ -1,15 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Eventos.Domain
 {
+  
+    //[Table("evento_tabela")]
     public class Evento
     {
         public int Id { get; set; }
         public string Local { get; set; }
-        public DateTime? DataEvento { get; set; }
+
+        public string DataEvento { get; set; }
+
+       // [Required]
         public string Tema { get; set; }
         public int QtdPessoas { get; set; }
         public string ImageURL { get; set; }

@@ -13,6 +13,9 @@ namespace Eventos.Application.Utils
         public EventosProfile()
         {
             CreateMap<Evento, EventoDto>().ReverseMap();
+            CreateMap<Lote, LoteDto>().ReverseMap();
+            CreateMap<Palestrante, PalestranteDto>().ReverseMap();
+            CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
         }
     }
 }
