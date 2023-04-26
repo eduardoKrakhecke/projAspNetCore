@@ -51,8 +51,8 @@ namespace Eventos.Persistence.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     Preco = table.Column<decimal>(type: "TEXT", nullable: false),
-                    DataInicio = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    DataFim = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DataInicio = table.Column<string>(type: "TEXT", nullable: true),
+                    DataFim = table.Column<string>(type: "TEXT", nullable: true),
                     Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
                     EventoId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
