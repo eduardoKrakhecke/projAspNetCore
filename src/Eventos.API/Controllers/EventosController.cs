@@ -7,18 +7,24 @@ using Microsoft.AspNetCore.Http;
 using Eventos.Application.Contratos;
 using System.Collections.Generic;
 using Eventos.Application.Dtos;
+using Eventos.API.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Eventos.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
         private readonly IEventoService _eventoService;
 
-        public EventosController(IEventoService eventoService)
+        private readonly IAccountService _accountService;
+
+        public EventosController(IEventoService eventoService, IAccountService accountService)
         {
             _eventoService = eventoService;
+            _accountService = accountService;
         }
 
         [HttpGet]
@@ -26,7 +32,7 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                var eventos = await _eventoService.GetAllEventosAsync(true);
+                var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), true);
                 if (eventos == null) return NoContent();
 
 
@@ -44,7 +50,7 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.GetEventoByIdAsync(id, true);
+                var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
                 if (evento == null) return NoContent();
 
                 return Ok(evento);
@@ -61,7 +67,7 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.GetAllEventosByTemaAsync(tema, true);
+                var evento = await _eventoService.GetAllEventosByTemaAsync(User.GetUserId(), tema, true);
                 if (evento == null) return NoContent();
 
                 return Ok(evento);
@@ -78,7 +84,7 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.AddEventos(model);
+                var evento = await _eventoService.AddEventos(User.GetUserId(), model);
                 if (evento == null) return NoContent();
 
                 return Ok(evento);
@@ -95,7 +101,7 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.UpdateEvento(id, model);
+                var evento = await _eventoService.UpdateEvento(User.GetUserId(), id, model);
                 if (evento == null) return NoContent();
 
                 return Ok(evento);
@@ -112,7 +118,9 @@ namespace Eventos.API.Controllers
         {
             try
             {
-                return await _eventoService.DeleteEvento(id) ? 
+                var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
+                if(evento == null) return NoContent();
+                return await _eventoService.DeleteEvento(User.GetUserId(), id) ? 
                        Ok( new { message = "Deletado"}) : 
                        BadRequest("Evento não deletado");
             }

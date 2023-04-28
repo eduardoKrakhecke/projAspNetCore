@@ -33,6 +33,8 @@ namespace Eventos.Application.Dtos
         [Display(Name ="e-mail")]
         [EmailAddress(ErrorMessage ="O {0} precisa ser válido.")]
         public string Email { get; set; }
+        public int UserId { get; set; }
+        public UserDto userDto { get; set; }
         public IEnumerable<LoteDto> Lotes { get; set; }
         public IEnumerable<RedeSocialDto> RedesSociais { get; set; }
         public IEnumerable<PalestranteDto> Palestrantes { get; set; }
