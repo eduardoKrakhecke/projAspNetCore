@@ -49,7 +49,7 @@ namespace Eventos.Application
             }
         }
 
-        public async Task<UserDto> CreateAccountAsync(UserDto userDto)
+        public async Task<UserUpdateDto> CreateAccountAsync(UserDto userDto)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Eventos.Application
                 var result = await _userManager.CreateAsync(user, userDto.Password);
                 if (result.Succeeded)
                 {
-                    var userToReturn = _mapper.Map<UserDto>(user);
+                    var userToReturn = _mapper.Map<UserUpdateDto>(user);
                     return userToReturn;
                 }
                 return null;
@@ -105,7 +105,7 @@ namespace Eventos.Application
                     var userRetorno = await _userPersist.GetUserByUsernameAsync(user.UserName);
                     return _mapper.Map<UserUpdateDto>(userRetorno);
                 }
-                return null;
+                 return null;
 
             }
             catch (System.Exception ex)
